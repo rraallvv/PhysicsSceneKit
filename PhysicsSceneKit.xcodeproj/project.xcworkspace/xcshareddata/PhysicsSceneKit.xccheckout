@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EC60183B-9C1B-4EDC-AD10-AFEE06DCEA82</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PhysicsSceneKit</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D9309A2293A149A83678D29E2B79FA9BDE6608BF</key>
+		<string>https://github.com/rraallvv/PhysicsSceneKit.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PhysicsSceneKit.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D9309A2293A149A83678D29E2B79FA9BDE6608BF</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/rraallvv/PhysicsSceneKit.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D9309A2293A149A83678D29E2B79FA9BDE6608BF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D9309A2293A149A83678D29E2B79FA9BDE6608BF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PhysicsSceneKit</string>
+		</dict>
+	</array>
+</dict>
+</plist>

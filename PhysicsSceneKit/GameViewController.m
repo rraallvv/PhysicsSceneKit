@@ -245,4 +245,8 @@
 	[_containerBody setAngularVelocity:SCNVector4Make(0.0f, 0.0f, 1.0f, -RPM_TO_RADS(2))];
 }
 
+- (void)dealloc {
+	[_displayLink invalidate];
+}
+
 @end
