@@ -8,7 +8,8 @@
 
 #import "GameViewController.h"
 
-#define RPM_TO_RADS(X)	(X*2.0f*M_PI/60.0f)
+#define RPM_TO_RADS(x)	(x*2.0f*M_PI/60.0f)
+#define str(s)	#s
 
 @implementation GameViewController {
 	SCNScene *_scene;
@@ -40,23 +41,20 @@
 	_material.locksAmbientWithDiffuse = true;
 
 	// Set shaderModifiers properties
-	_material.shaderModifiers = @{SCNShaderModifierEntryPointSurface : @"\n"
-						 "float flakeSize = sin(u_time * 0.2);\n"
-						 "float flakeIntensity = 0.7;\n"
-						 "vec3 paintColor0 = vec3(0.9, 0.4, 0.3);\n"
-						 "vec3 paintColor1 = vec3(0.9, 0.75, 0.2);\n"
-						 "vec3 flakeColor = vec3(flakeIntensity, flakeIntensity, flakeIntensity);\n"
-						 "vec3 rnd = vec3(0.5);\n"
-						 "vec3 nrm1 = normalize(0.05 * rnd + 0.95 * _surface.normal);\n"
-						 "vec3 nrm2 = normalize(0.3 * rnd + 0.4 * _surface.normal);\n"
-						 "float fresnel1 = clamp(dot(nrm1, _surface.view), 0.0, 1.0);\n"
-						 "float fresnel2 = clamp(dot(nrm2, _surface.view), 0.0, 1.0);\n"
-						 "vec3 col = mix(paintColor0, paintColor1, fresnel1);\n"
-						 "col += pow(fresnel2, 106.0) * flakeColor;\n"
-						 "_surface.normal = nrm1;\n"
-						 "_surface.diffuse = vec4(col.r,col.b,col.g, 1.0);\n"
-						 "_surface.emission = (_surface.reflective * _surface.reflective) * 2.0;\n"
-						 "_surface.reflective = vec4(0.0);\n"};
+	_material.shaderModifiers = @{SCNShaderModifierEntryPointSurface :
+									  @str(
+										   vec3 paintColor1 = vec3(0.64, 0.09, 0.09);
+										   vec3 nrm1 = normalize(0.05 * vec3(0.5) + 0.95 * _surface.normal);
+										   vec3 nrm2 = normalize(0.3 * vec3(0.5) + 0.4 * _surface.normal);
+										   float fresnel1 = clamp(dot(nrm1, _surface.view), 0.0, 1.0);
+										   float fresnel2 = clamp(dot(nrm2, _surface.view), 0.0, 1.0);
+										   vec3 col = paintColor1 * fresnel1;
+										   col += pow(fresnel2, 106.0);
+										   _surface.normal = nrm1;
+										   _surface.diffuse = vec4(col.r,col.b,col.g, 1.0);
+										   _surface.specular = (_surface.reflective * _surface.reflective) * 2.0;
+										   _surface.reflective = vec4(0.0);
+										   )};
 
 
 	// Add the geometry and physics bodies
