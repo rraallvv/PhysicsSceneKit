@@ -7,6 +7,7 @@
 //
 
 #import "GameViewController.h"
+#import <GLKit/GLKit.h>
 
 #define RPM_TO_RADS(x)	(x*2.0f*M_PI/60.0f)
 #define str(s)	#s
@@ -24,38 +25,32 @@
 	// Create a new scene
 	_scene = [SCNScene scene];
 
-	// Create and add a camera t the scene
+	// Create and add a camera to the scene
 	SCNNode *cameraNode = [SCNNode node];
 	cameraNode.camera = [SCNCamera camera];
 	cameraNode.camera.yFov = 68.0;
 	[_scene.rootNode addChildNode:cameraNode];
 
-	// place the camera
+	// Place the camera
 	cameraNode.position = SCNVector3Make(0.0f, 0.0f, 40.0f);
 
+	// Create and add a light
+	SCNNode *lightNode = [SCNNode node];
+	lightNode.light = [SCNLight light];
+	lightNode.light.color = [UIColor redColor];
+	lightNode.light.type = SCNLightTypeDirectional;
+	[_scene.rootNode addChildNode:lightNode];
+
+	// Rotate the light
+	GLKQuaternion orientation = GLKQuaternionMakeWithAngleAndAxis(-M_PI_4, 1.0f, 0.0f, 0.0f);
+	lightNode.orientation = SCNVector4Make(orientation.x, orientation.y, orientation.z, orientation.w);
 
 	// Create a material
 	_material = [SCNMaterial material];
-	//_material.diffuse.contents = [UIColor blueColor];
-	//_material.specular.contents = [UIColor blueColor];
-	_material.locksAmbientWithDiffuse = true;
-
-	// Set shaderModifiers properties
-	_material.shaderModifiers = @{SCNShaderModifierEntryPointSurface :
-									  @str(
-										   vec3 paintColor1 = vec3(0.64, 0.09, 0.09);
-										   vec3 nrm1 = normalize(0.05 * vec3(0.5) + 0.95 * _surface.normal);
-										   vec3 nrm2 = normalize(0.3 * vec3(0.5) + 0.4 * _surface.normal);
-										   float fresnel1 = clamp(dot(nrm1, _surface.view), 0.0, 1.0);
-										   float fresnel2 = clamp(dot(nrm2, _surface.view), 0.0, 1.0);
-										   vec3 col = paintColor1 * fresnel1;
-										   col += pow(fresnel2, 106.0);
-										   _surface.normal = nrm1;
-										   _surface.diffuse = vec4(col.r,col.b,col.g, 1.0);
-										   _surface.specular = (_surface.reflective * _surface.reflective) * 2.0;
-										   _surface.reflective = vec4(0.0);
-										   )};
-
+	_material.diffuse.contents = [UIColor whiteColor];
+	_material.specular.contents = [UIColor whiteColor];
+	_material.specular.intensity = 0.2;
+	_material.locksAmbientWithDiffuse = YES;
 
 	// Add the geometry and physics bodies
 	[self addContainerAtPosition:SCNVector3Make(0.0f, 0.0f, 0.0f)];
