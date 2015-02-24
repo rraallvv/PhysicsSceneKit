@@ -42,8 +42,7 @@
 	[_scene.rootNode addChildNode:lightNode];
 
 	// Rotate the light
-	GLKQuaternion orientation = GLKQuaternionMakeWithAngleAndAxis(-M_PI_4, 1.0f, 0.0f, 0.0f);
-	lightNode.orientation = SCNVector4Make(orientation.x, orientation.y, orientation.z, orientation.w);
+	lightNode.eulerAngles = SCNVector3Make(-45.0f, 0.0f, 0.0f);
 
 	// Create a material
 	_material = [SCNMaterial material];
