@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E48239901A9A78D6004537F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E482398F1A9A78D6004537F5 /* main.m */; };
 		E48239931A9A78D6004537F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E48239921A9A78D6004537F5 /* AppDelegate.m */; };
-		E48239951A9A78D6004537F5 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = E48239941A9A78D6004537F5 /* art.scnassets */; };
 		E48239981A9A78D6004537F5 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E48239971A9A78D6004537F5 /* GameViewController.m */; };
 		E482399B1A9A78D6004537F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48239991A9A78D6004537F5 /* Main.storyboard */; };
 		E482399D1A9A78D6004537F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E482399C1A9A78D6004537F5 /* Images.xcassets */; };
@@ -33,7 +32,6 @@
 		E482398F1A9A78D6004537F5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E48239911A9A78D6004537F5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E48239921A9A78D6004537F5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E48239941A9A78D6004537F5 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		E48239961A9A78D6004537F5 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		E48239971A9A78D6004537F5 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		E482399A1A9A78D6004537F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 			children = (
 				E48239911A9A78D6004537F5 /* AppDelegate.h */,
 				E48239921A9A78D6004537F5 /* AppDelegate.m */,
-				E48239941A9A78D6004537F5 /* art.scnassets */,
 				E48239961A9A78D6004537F5 /* GameViewController.h */,
 				E48239971A9A78D6004537F5 /* GameViewController.m */,
 				E48239991A9A78D6004537F5 /* Main.storyboard */,
@@ -166,7 +163,7 @@
 		E48239821A9A78D6004537F5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Rhody Lugo";
 				TargetAttributes = {
 					E48239891A9A78D6004537F5 = {
@@ -204,7 +201,6 @@
 			files = (
 				E48239A01A9A78D6004537F5 /* LaunchScreen.xib in Resources */,
 				E482399D1A9A78D6004537F5 /* Images.xcassets in Resources */,
-				E48239951A9A78D6004537F5 /* art.scnassets in Resources */,
 				E482399B1A9A78D6004537F5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +283,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -351,6 +348,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PhysicsSceneKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Rhody-Lugo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -361,6 +359,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PhysicsSceneKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Rhody-Lugo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -379,6 +378,7 @@
 				);
 				INFOPLIST_FILE = PhysicsSceneKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Rhody-Lugo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhysicsSceneKit.app/PhysicsSceneKit";
 			};
@@ -394,6 +394,7 @@
 				);
 				INFOPLIST_FILE = PhysicsSceneKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Rhody-Lugo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhysicsSceneKit.app/PhysicsSceneKit";
 			};
@@ -418,6 +419,7 @@
 				E48239B11A9A78D6004537F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E48239B21A9A78D6004537F5 /* Build configuration list for PBXNativeTarget "PhysicsSceneKitTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +428,7 @@
 				E48239B41A9A78D6004537F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
